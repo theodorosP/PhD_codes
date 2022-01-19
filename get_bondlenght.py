@@ -1,3 +1,11 @@
+from ase.io import read 
+from fractions import Fraction
+#from ase.neighborlist import  natural_cutoffs, NeighborList 
+from ase.neighborlist import NeighborList 
+import numpy as np 
+import matplotlib.pyplot as plt
+
+
 sys = read( 'OUTCAR' ) 
 
 lead_list = [ atom.index for atom in sys if atom.symbol == 'Pb' ] 
