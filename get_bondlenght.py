@@ -13,6 +13,7 @@ struc = sys[ lead_list ]
 avg = 0 
 k = 0
 
+l_avg = list()
 print( len( lead_list ), 'Pb Atoms'  ) 
 for atom in range( len( struc ) ): 
 	print( atom, ' out of ', len( struc ) ) 
