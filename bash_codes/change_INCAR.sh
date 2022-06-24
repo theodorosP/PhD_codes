@@ -1,8 +1,9 @@
 #! /bin/bash
 
-for i in `seq -2.5 0.5 0.0`
+for i in -2.5 -2.0 -1.0 -0.5 0.0
 do
-cd /home/theodoros/PROJ_ElectroCat/theodoros/NH4_Bi111/NH4_Bi111_O_not_constrained/more_sites/NH4_top_symmetric/FindChg_$i/target_potential/
+
+cd /home/theodoros/PROJ_ElectroCat/theodoros/NH4_Bi111/NH4_Bi111_O_not_constrained/more_sites/right_left_4_symmetric/FindChg_U_$i/target_potential/more_accurate 
 
 NELECT_INCAR=`grep "NELECT =" INCAR|awk '{print $3}'`
 echo NELECT_INCAR = $NELECT_INCAR
@@ -20,7 +21,7 @@ echo The NELECT changed to NELECT_INCAR = $NELECT_INCAR
 TPOTVTARGET=`grep "TPOTVTARGET" INCAR|awk '{print $3}'`
 echo TPOTVTARGET = $TPOTVTARGET
 
-TPOTVTARGET_UPDATED=$(echo "$TPOTVTARGET + $i"|bc)
+TPOTVTARGET_UPDATED=$(echo "4.43 + $i"|bc)
 echo TPOTVTARGET_UPDATED= $TPOTVTARGET_UPDATED
 
 sed -i "s/TPOTVTARGET = $TPOTVTARGET/TPOTVTARGET = $TPOTVTARGET_UPDATED/g" INCAR
